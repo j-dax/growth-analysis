@@ -49,14 +49,14 @@ def analyze(is_follower: bool, is_mod_or_vip: bool, sub_tier: int):
     credit_producer = lambda : 2
 
     # Containers, used in blind generation
-    base = SymbolGenerator(base_selector, v)
+    base = SymbolGenerator(base_selector, w)
     follow = SymbolGenerator(follow_producer, v)
     vip = SymbolGenerator(vip_producer, x)
     sub = SymbolGenerator(sub_producer, y)
     credit = SymbolGenerator(credit_producer, z)
 
     # The function we'll use
-    f = base.sym * follow.sym * sub.sym * vip.sym * credit.sym
+    f = base.sym * follow.sym * vip.sym * sub.sym * credit.sym
     return describe_bins(f, 5000, base, follow, sub, vip, credit)
 
 def human_readable(x):
